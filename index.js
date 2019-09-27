@@ -12,11 +12,12 @@ nextISSTimesForMyLocation((error, passTimes) => {
 });
 
 const printTimes = function (passTimes) {
-  for (const i of passTimes) {
-    console.log(i.duration)
-    const dateTime = new Date(0)
-    console.log(dateTime)
-
+  for (const x of passTimes) {
+    console.log(x.duration)
+    const date = new Date(0)
+    date.setUTCSeconds((x.risetime) - 25200);
+    const duration = x.duration;
+    console.log(`Next pass at ${date} for ${duration} seconds!`);
   }
 }
 
